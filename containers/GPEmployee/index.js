@@ -6,7 +6,6 @@ import {
 
 } from 'native-base'
 
-import GPEmployeeHeader from './GPEmployeeHeader'
 import GPEmployeeMemberItem from './components/GPEmployeeMemberItem'
 import Header2 from '../../components/Header2';
 

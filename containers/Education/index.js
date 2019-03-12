@@ -18,12 +18,12 @@ class Education extends Component {
                 <Header3 title='Education' navigationProps={this.props.navigation} />
                 <Content>
                 <Tabs tabBarUnderlineStyle={{ backgroundColor: theme.themeColor}} style={{ backgroundColor: theme.themeColor}} locked={false} > 
-                    <Tab heading="Notice" tabStyle={{backgroundColor: 'white'}} activeTextStyle={{color: theme.d2}} activeTabStyle={{backgroundColor: 'white'}}>
+                    <Tab heading="Notifications" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.themeColor}} activeTextStyle={{color: theme.themeColor }} activeTabStyle={{backgroundColor: 'white'}}>
                         <Content>
                             <Text>No data found</Text>
                         </Content>
                     </Tab>
-                    <Tab heading="Institution" tabStyle={{backgroundColor: 'white'}} activeTextStyle={{color: theme.d2}} activeTabStyle={{backgroundColor: 'white'}}>
+                    <Tab heading="Institution" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.themeColor}} activeTextStyle={{color: theme.themeColor }} activeTabStyle={{backgroundColor: 'white'}}>
                         <Content>
                         <Text>Education Details</Text>
                         </Content>

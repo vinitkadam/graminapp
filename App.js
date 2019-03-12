@@ -8,6 +8,7 @@ import ReduxThunk from 'redux-thunk';
 import Router from './Router';
 import reducers from './reducers';
 import { Font, AppLoading } from "expo";
+import { MenuProvider } from 'react-native-popup-menu';
 
 
 class App extends Component {
@@ -48,7 +49,9 @@ class App extends Component {
       }else{
         return (
           <Provider store={store}>
-            <Router />
+            <MenuProvider>
+              <Router />
+            </MenuProvider>
           </Provider>
         );
       }

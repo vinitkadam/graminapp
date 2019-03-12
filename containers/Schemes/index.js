@@ -18,14 +18,14 @@ class Schemes extends Component {
                 <Header3 title='Goverment Schemes' navigationProps={this.props.navigation} />
                 <Content>
                 <Tabs tabBarUnderlineStyle={{ backgroundColor: theme.themeColor}} style={{ backgroundColor: theme.themeColor}} locked={false} > 
-                    <Tab heading="Yojna" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.l2}} activeTextStyle={{color: theme.d2}} activeTabStyle={{backgroundColor: 'white'}}>
+                    <Tab heading="Yojna" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.themeColor}} activeTextStyle={{color: theme.themeColor }} activeTabStyle={{backgroundColor: 'white'}}>
                         <Container>
                             <Content>
                                 <Text>No data found</Text>
                             </Content>
                         </Container>
                     </Tab>
-                    <Tab heading="Maha Yojna" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.l2}} activeTextStyle={{color: theme.d2}} activeTabStyle={{backgroundColor: 'white'}}>
+                    <Tab heading="Maha Yojna" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.themeColor}} activeTextStyle={{color: theme.themeColor}} activeTabStyle={{backgroundColor: 'white'}}>
                             <WebView
                                 source={{uri: 'https://mahaschemes.maharashtra.gov.in/'}}
                             />

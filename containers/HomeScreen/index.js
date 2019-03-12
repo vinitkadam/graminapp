@@ -24,14 +24,12 @@ import {
 import { connect } from 'react-redux'
 import { colors } from '../../colors'
 import GridCard from './components/GridCard'
-import { setTheme } from './actions'
 import Header3 from '../../components/Header3';
 
 class HomeScreen extends Component {
     render(){
         let theme = colors[this.props.theme]
         return(
-            <MenuProvider>
             <Container style={{ marginTop: StatusBar.currentHeight}}>
                 <Header3 title='Prayojan' navigationProps={this.props.navigation} />
                 <Content>
@@ -100,12 +98,8 @@ class HomeScreen extends Component {
                         </Col>
                     </Row>
                 </Grid>
-                <Button onPress={() => this.props.setTheme('theme1')}>
-                    <Text>change theme</Text>
-                </Button>
                 </Content>
             </Container>
-            </MenuProvider>
         )
     }
 }
@@ -137,4 +131,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { setTheme })(HomeScreen);
+export default connect(mapStateToProps)(HomeScreen);
