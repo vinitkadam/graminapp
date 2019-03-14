@@ -16,7 +16,6 @@ class Schemes extends Component {
         return (
             <Container style={{ marginTop: StatusBar.currentHeight }}>
                 <Header3 title='Goverment Schemes' navigationProps={this.props.navigation} />
-                <Content>
                 <Tabs tabBarUnderlineStyle={{ backgroundColor: theme.themeColor}} style={{ backgroundColor: theme.themeColor}} locked={false} > 
                     <Tab heading="Yojna" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.themeColor}} activeTextStyle={{color: theme.themeColor }} activeTabStyle={{backgroundColor: 'white'}}>
                         <Container>
@@ -31,7 +30,6 @@ class Schemes extends Component {
                             />
                     </Tab>
                 </Tabs>
-                </Content>
             </Container>
         )
     }

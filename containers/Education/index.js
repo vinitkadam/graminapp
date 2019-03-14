@@ -16,7 +16,6 @@ class Education extends Component {
         return (
             <Container style={{ marginTop: StatusBar.currentHeight }}>
                 <Header3 title='Education' navigationProps={this.props.navigation} />
-                <Content>
                 <Tabs tabBarUnderlineStyle={{ backgroundColor: theme.themeColor}} style={{ backgroundColor: theme.themeColor}} locked={false} > 
                     <Tab heading="Notifications" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.themeColor}} activeTextStyle={{color: theme.themeColor }} activeTabStyle={{backgroundColor: 'white'}}>
                         <Content>
@@ -29,7 +28,6 @@ class Education extends Component {
                         </Content>
                     </Tab>
                 </Tabs>
-                </Content>
             </Container>
         )
     }

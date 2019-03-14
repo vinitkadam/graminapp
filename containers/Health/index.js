@@ -17,7 +17,6 @@ class Health extends Component {
         return (
             <Container style={{ marginTop: StatusBar.currentHeight }}>
                 <Header3 title='Health' navigationProps={this.props.navigation} />
-                <Content>
                 <Tabs tabBarUnderlineStyle={{ backgroundColor: theme.themeColor}} style={{ backgroundColor: theme.themeColor}} locked={false} > 
                     <Tab heading="Notice" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.l2}} activeTextStyle={{color: theme.d2}} activeTabStyle={{backgroundColor: 'white'}}>
                         <View style={{ height: 500 }}>
@@ -34,7 +33,6 @@ class Health extends Component {
                         </View>
                     </Tab>
                 </Tabs>
-                </Content>
             </Container>
         )
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StatusBar, FlatList, Text } from 'react-native'
+import { StatusBar, FlatList, Text, Linking } from 'react-native'
 import {
     Container,
     Content,
@@ -17,6 +17,7 @@ class EPayment extends Component {
     componentDidMount() {
         this.props.getPaymentList()
     }
+    
     renderList = () => {
         if(this.props.loading){
             return (
@@ -33,16 +34,18 @@ class EPayment extends Component {
                 <FlatList
                     data={this.props.epayment_list}
                     renderItem={({ item }) => (
-                        <Button>
-                            <ListItem>
+                        
+                        <ListItem>
+                            <Button transparent style={{ width: '100%'}} onPress={() => { Linking.openURL(item.payment_url)}}>
                                 <Text>{`${item.title}`}</Text>
-                            </ListItem>
-                        </Button>
+                            </Button>
+                        </ListItem>
                     )}
                 />
             )
         }
     }
+
     render() {
         return (
             <Container style={{ marginTop: StatusBar.currentHeight }}>

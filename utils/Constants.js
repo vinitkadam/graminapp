@@ -4,7 +4,11 @@ const Constants = {
 
     //routes 
     // e-payment routes
-    EPAYMENT_LIST: 'payment'
+    EPAYMENT_LIST: 'payment',
+
+    //about village routes
+    ABOUT_VILLAGE_NOTIFICATIONS: 'villege'
+
 
 };
 

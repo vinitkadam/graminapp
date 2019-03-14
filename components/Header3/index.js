@@ -78,21 +78,26 @@ class Header3 extends Component {
                                         </Col>                                
                                     </Row>
                                 </ListItem>
-                                <ListItem>
+                                <MenuOption onSelect={() => alert(`About App`)} >
+                                <ListItem disabled>
                                     <Text style={styles.popupText}>About App</Text>
                                 </ListItem>
-                                <ListItem>
-                                    <Text style={styles.popupText}>Feedback</Text>
-                                </ListItem>
-                                <ListItem>
+                                </MenuOption>
+                                <MenuOption onSelect={() => alert(`Contact US`)} >
+                                <ListItem disabled>
                                     <Text style={styles.popupText}>Contact Us</Text>
                                 </ListItem>
-                                <ListItem>
+                                </MenuOption>
+                                <MenuOption onSelect={() => alert(`Terms and conditions`)} >
+                                <ListItem disabled>
                                     <Text style={styles.popupText}>Terms and Conditions</Text>
                                 </ListItem>
-                                <ListItem>
+                                </MenuOption>
+                                <MenuOption onSelect={() => alert(`Playstore link`)} >
+                                <ListItem disabled>
                                     <Text style={styles.popupText}>Rate Us</Text>
                                 </ListItem>
+                                </MenuOption>
                         </MenuOptions>
                     </Menu>
                 </Right>

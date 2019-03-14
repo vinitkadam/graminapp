@@ -6,7 +6,8 @@ import {
     createSwitchNavigator,
     createMaterialTopTabNavigator,
     createAppContainer,
-    createDrawerNavigator
+    createDrawerNavigator,
+    DrawerItems
 } from 'react-navigation';
 
 import Icon from '@expo/vector-icons/Ionicons'
@@ -23,10 +24,15 @@ import EPayment from './containers/EPayment';
 import Education from './containers/Education'
 import Health from './containers/Health';
 import Schemes from './containers/Schemes';
+import Drawer from './components/Drawer'
+import AboutVillage from './containers/AboutVillage';
 
 const HomeStackNavigator = createStackNavigator({
   home: {
     screen: HomeScreen,
+  },
+  aboutvillage: {
+    screen: AboutVillage
   },
   gpsamiti: {
     screen: GPSamiti
@@ -72,11 +78,23 @@ const AppDrawerNavigator = createDrawerNavigator({
   schemes: {
     screen: Schemes
   }
+},{
+  contentComponent: props => <Drawer {...props} />
+}
+);
+
+const AppStackNavigator = createStackNavigator({
+  home_drawer: AppDrawerNavigator,
+},{
+  headerMode: 'none',
+  navigationOptions: {
+      headerVisible: false,
+  }
 });
 
 
 const MainNavigator = createSwitchNavigator({
-  app: AppDrawerNavigator,
+  app: AppStackNavigator,
 },
 {
   headerMode: 'none',

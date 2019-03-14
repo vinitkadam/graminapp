@@ -65,6 +65,6 @@ const styles = {
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 0.1,
         shadowRadius: 10,
-        elevation: 14
+        elevation: 16   
     },
 }

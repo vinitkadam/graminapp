@@ -6,13 +6,22 @@ import {
 import Header2 from '../../components/Header2';
 
 class TaxPayment extends Component {
+
+    renderWebView = () => {
+        return (
+            <WebView
+                source={{uri: 'http://gramchaitanya.co.in/SelectGP.aspx?ReturnUrl=%2f'}}
+            />
+        )
+    }
+
     render() {
         return (
             <Container style={{ marginTop: StatusBar.currentHeight }}>
                 <Header2 title='Tax Payment' navigationProps={this.props.navigation} />
-                <WebView
-                    source={{uri: 'http://gramchaitanya.co.in/SelectGP.aspx?ReturnUrl=%2f'}}
-                />
+                {
+                    this.renderWebView()
+                }
             </Container>
         )
     }

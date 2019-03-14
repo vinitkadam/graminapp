@@ -2,6 +2,7 @@ import { persistCombineReducers } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import ThemeReducer from './ThemeReducer'
 import EPaymentReducer from '../containers/EPayment/reducer'
+import AboutVillage from '../containers/AboutVillage/reducer'
 
 const config = {
     key: 'primary',
@@ -11,5 +12,6 @@ const config = {
 
 export default persistCombineReducers(config, {
     theme: ThemeReducer,
-    epayment: EPaymentReducer
+    epayment: EPaymentReducer,
+    about_village: AboutVillage
 });

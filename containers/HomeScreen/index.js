@@ -7,18 +7,11 @@ import {
     Image
 } from 'react-native'
 import { 
-    Container, 
-    Header, 
-    Left, 
-    Body, 
-    Right, 
-    Button, 
-    Icon, 
-    Title, 
+    Container,  
+    Icon,  
     Grid, 
     Col, 
     Row, 
-    Card,
     Content
 } from 'native-base'
 import { connect } from 'react-redux'
@@ -27,6 +20,15 @@ import GridCard from './components/GridCard'
 import Header3 from '../../components/Header3';
 
 class HomeScreen extends Component {
+    static navigationOptions = ({ navigation }) => ({
+        drawerLabel: 'Notification',
+        drawerIcon: ({ tintColor }) => (
+            <Image
+                source={require('../../assets/icons/home.png')}
+                style={styles.icon}
+            />
+        ),
+    })
     render(){
         let theme = colors[this.props.theme]
         return(
@@ -36,7 +38,7 @@ class HomeScreen extends Component {
                 <Grid>
                     <Row style={styles.rowStyle}>
                         <Col style={styles.colStyle}>
-                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='gpsamiti'>
+                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='aboutvillage'>
                                 <Image source={require('./assets/icons/house.png')}/>
                                 <Text style={styles.cardText}>About Village</Text>
                                 

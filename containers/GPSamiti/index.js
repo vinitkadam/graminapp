@@ -16,7 +16,7 @@ const dummydata = [
         post: 'post1',
         startDate: '2014-03-14',
         endDate: '2018-03-14',
-        contactNumber: '9897123456',
+        contactNumber: '+91 9897123456',
         imageSource: 'http://sadavli.pixelmotive.in/uploads/3574.jpg'
     },
     {
@@ -25,7 +25,7 @@ const dummydata = [
         post: 'post2',
         startDate: '2014-03-14',
         endDate: '2018-03-14',
-        contactNumber: '9997123456',
+        contactNumber: '+91 9997123456',
         imageSource: 'http://sadavli.pixelmotive.in/uploads/3574.jpg'
     }
 ]
@@ -38,7 +38,7 @@ class GPSamiti extends Component {
                 <Content>
                     <FlatList
                         data = {dummydata}
-                        keyExtractor={(item, index) => {item.id;} }
+                        keyExtractor={(item, index) => (item.id) }
                         renderItem={({item}) => (<SamitiMemberItem item={item} />) }
                     />
                 </Content>

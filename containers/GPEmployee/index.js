@@ -38,7 +38,7 @@ class GPEmployee extends Component {
                 <Content>
                     <FlatList
                         data = {dummydata}
-                        keyExtractor={(item, index) => {item.id;} }
+                        keyExtractor={(item, index) => (item.id) }
                         renderItem={({item}) => (<GPEmployeeMemberItem item={item} />) }
                     />
                 </Content>

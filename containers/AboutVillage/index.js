@@ -5,56 +5,80 @@ import {
     Content,
     Tabs,
     Tab,
-    View
+    View,
+    Spinner,
+    CardItem, Left, Right, Button, Icon, Body, Card, Image
 } from 'native-base'
 import { connect } from 'react-redux'
-import Header3 from '../../components/Header3'
+import Header2 from '../../components/Header2'
 import { colors } from '../../colors'
+import GPListItem from './components/GPListItem';
+import { getAboutVillageNotifications } from './actions'
 
-const dummydata = [
-    {
-        id: 1,
-        name: 'name1',
-        date: '2018-03-14',
-        imageSource: 'http://sadavli.pixelmotive.in/uploads/3574.jpg'
-    },
-    {
-        id: 2,
-        name: 'name2',
-        date: '2018-03-14',
-        imageSource: 'http://sadavli.pixelmotive.in/uploads/3574.jpg'
-    }
-]
+const dummydata = [{"id":"1","title":"सडवली ग्रामोन्नती सेवा मंडळ, मुंबई  1","img_name":"http://sadavli.pixelmotive.in/uploads/5652.jpg","description":"<p>संपादक उद्योग किएलोग मानव बाजार जैसी वर्णन क्षमता हुएआदि बातसमय चुनने दुनिया करेसाथ सभीकुछ एछित उदेशीत प्रदान पुर्णता दिये लेकिन प्राण सेऔर नयेलिए मेंभटृ प्रेरना अधिकार प्रेरना आंतरजाल रखति बनाति दौरान कुशलता अनुकूल सुविधा जैसी प्रेरना मर्यादित लेकिन ७०है अत्यंत दोषसके समस्याए उनको समजते माध्यम तरहथा। वातावरण करके ध्येय रखति औषधिक तरहथा। अमितकुमार उदेशीत सोफ़्टवेर भाति पहेला एसेएवं आवश्यकत स्वतंत्रता नवंबर करके बदले बढाता परिवहन ज्यादा कार्यसिधान्तो अपने ब्रौशर स्वतंत्रता आंतरकार्यक्षमता खरिदे ज्यादा पुर्णता विकेन्द्रित मुख्य अतित 1<br></p>"},{"id":"2","title":"संपादक उद्योग","img_name":"http://sadavli.pixelmotive.in/uploads/3477.jpg","description":"<p><b>संपादक उद्योग किएलोग मानव बाजार जैसी वर्णन क्षमता हुएआदि बातसमय चुनने दुनिया करेसाथ सभीकुछ एछित उदेशीत प्रदान पुर्णता दिये लेकिन प्राण सेऔर नयेलिए मेंभटृ प्रेरना अधिकार प्रेरना आंतरजाल रखति बनाति</b></p><p><b>दौरान कुशलता अनुकूल सुविधा जैसी प्रेरना मर्यादित लेकिन ७०है अत्यंत दोषसके समस्याए उनको समजते माध्यम तरहथा। वातावरण करके ध्येय रखति औषधिक तरहथा। अमितकुमार उदेशीत सोफ़्टवेर भाति पहेला एसेएवं आवश्यकत स्वतंत्रता नवंबर करके बदले बढाता परिवहन ज्यादा कार्यसिधान्तो अपने ब्रौशर स्वतंत्रता आंतरकार्यक्षमता खरिदे ज्यादा पुर्णता विकेन्द्रित मुख्य अतित 1</b></p>"}]
 
 class AboutVillage extends Component {
+    componentDidMount() {
+        this.props.getAboutVillageNotifications()
+    }
+    renderList = () => {
+        if(this.props.loading){
+            return (
+                <Container style={{ alignItems: 'center', justifyContent: 'center' }}>
+                    <Spinner color='blue' />
+                </Container>
+            )
+        }
+        else if(this.props.error){
+            return (
+                <Text>error</Text>
+            )
+        } 
+        else {
+            return (
+                <FlatList
+                    data = {this.props.about_village_notifications}
+                    keyExtractor={(item, index) => (item.id) }
+                    renderItem={({item}) => (
+                        <GPListItem item={item} />
+                    ) }
+                />
+            )
+        }
+
+        // return (
+        //     <FlatList
+        //         data = {this.props.about_village_notifications}
+        //         keyExtractor={(item, index) => (item.id) }
+        //         renderItem={({item}) => (
+        //             <GPListItem item={item} />
+        //         ) }
+        //     />
+        // )
+    }
+
+    
+
     render() {
         let theme = colors[this.props.theme]
         return (
             <Container style={{ marginTop: StatusBar.currentHeight }}>
-                <Header3 title='Health' navigationProps={this.props.navigation} />
-                <Content>
+                <Header2 title='About Village' navigationProps={this.props.navigation} />
                 <Tabs tabBarUnderlineStyle={{ backgroundColor: theme.themeColor}} style={{ backgroundColor: theme.themeColor}} locked={false} > 
                     <Tab heading="Notice" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.l2}} activeTextStyle={{color: theme.d2}} activeTabStyle={{backgroundColor: 'white'}}>
-                        <View style={{ height: 500 }}>
+                        <Content>
+                            {this.renderList()}
+                        </Content>
+
+                    </Tab>
+                    <Tab heading="Institution" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.l2}} activeTextStyle={{color: theme.d2}} activeTabStyle={{backgroundColor: 'white'}}>
+                        <View style={{ height: 500, backgroundColor: 'white' }}>
                             <Content>
                                 <Text>No data found</Text>
                             </Content>
-                        </View>
-                    </Tab>
-                    <Tab heading="Institution" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.l2}} activeTextStyle={{color: theme.d2}} activeTabStyle={{backgroundColor: 'white'}}>
-                        <View style={{ height: 500 }}>
-                            <Content>
-                                <FlatList 
-                                    data={dummydata}
-                                    renderItem={({ item }) => {
-                                        <
-                                    }}
-                                />
-                            </Content>
-                        </View>
+                        </View>                        
                     </Tab>
                 </Tabs>
-                </Content>
             </Container>
         )
     }
@@ -62,8 +86,11 @@ class AboutVillage extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        theme: state.theme.theme
+        theme: state.theme.theme,
+        loading: state.about_village.loading,
+        about_village_notifications: state.about_village.about_village_notifications,
+        error: state.about_village.error,
     };
 };
 
-export default connect(mapStateToProps)(AboutVillage);
+export default connect(mapStateToProps, { getAboutVillageNotifications })(AboutVillage);
