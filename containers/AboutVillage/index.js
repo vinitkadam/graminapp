@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StatusBar, Text, FlatList } from 'react-native'
+import { StatusBar, Text, FlatList, Image, Dimensions } from 'react-native'
 import {
     Container,
     Content,
@@ -7,13 +7,14 @@ import {
     Tab,
     View,
     Spinner,
-    CardItem, Left, Right, Button, Icon, Body, Card, Image
+    Button,
 } from 'native-base'
 import { connect } from 'react-redux'
 import Header2 from '../../components/Header2'
 import { colors } from '../../colors'
 import GPListItem from './components/GPListItem';
 import { getAboutVillageNotifications } from './actions'
+import HTML from 'react-native-render-html';
 
 const dummydata = [{"id":"1","title":"सडवली ग्रामोन्नती सेवा मंडळ, मुंबई  1","img_name":"http://sadavli.pixelmotive.in/uploads/5652.jpg","description":"<p>संपादक उद्योग किएलोग मानव बाजार जैसी वर्णन क्षमता हुएआदि बातसमय चुनने दुनिया करेसाथ सभीकुछ एछित उदेशीत प्रदान पुर्णता दिये लेकिन प्राण सेऔर नयेलिए मेंभटृ प्रेरना अधिकार प्रेरना आंतरजाल रखति बनाति दौरान कुशलता अनुकूल सुविधा जैसी प्रेरना मर्यादित लेकिन ७०है अत्यंत दोषसके समस्याए उनको समजते माध्यम तरहथा। वातावरण करके ध्येय रखति औषधिक तरहथा। अमितकुमार उदेशीत सोफ़्टवेर भाति पहेला एसेएवं आवश्यकत स्वतंत्रता नवंबर करके बदले बढाता परिवहन ज्यादा कार्यसिधान्तो अपने ब्रौशर स्वतंत्रता आंतरकार्यक्षमता खरिदे ज्यादा पुर्णता विकेन्द्रित मुख्य अतित 1<br></p>"},{"id":"2","title":"संपादक उद्योग","img_name":"http://sadavli.pixelmotive.in/uploads/3477.jpg","description":"<p><b>संपादक उद्योग किएलोग मानव बाजार जैसी वर्णन क्षमता हुएआदि बातसमय चुनने दुनिया करेसाथ सभीकुछ एछित उदेशीत प्रदान पुर्णता दिये लेकिन प्राण सेऔर नयेलिए मेंभटृ प्रेरना अधिकार प्रेरना आंतरजाल रखति बनाति</b></p><p><b>दौरान कुशलता अनुकूल सुविधा जैसी प्रेरना मर्यादित लेकिन ७०है अत्यंत दोषसके समस्याए उनको समजते माध्यम तरहथा। वातावरण करके ध्येय रखति औषधिक तरहथा। अमितकुमार उदेशीत सोफ़्टवेर भाति पहेला एसेएवं आवश्यकत स्वतंत्रता नवंबर करके बदले बढाता परिवहन ज्यादा कार्यसिधान्तो अपने ब्रौशर स्वतंत्रता आंतरकार्यक्षमता खरिदे ज्यादा पुर्णता विकेन्द्रित मुख्य अतित 1</b></p>"}]
 
@@ -21,7 +22,7 @@ class AboutVillage extends Component {
     componentDidMount() {
         this.props.getAboutVillageNotifications()
     }
-    renderList = () => {
+    renderList = (theme) => {
         if(this.props.loading){
             return (
                 <Container style={{ alignItems: 'center', justifyContent: 'center' }}>
@@ -40,7 +41,13 @@ class AboutVillage extends Component {
                     data = {this.props.about_village_notifications}
                     keyExtractor={(item, index) => (item.id) }
                     renderItem={({item}) => (
-                        <GPListItem item={item} />
+                        <View style={styles.card}>
+                            <Text style={[styles.title, { color: theme.themeColor }]}>
+                                {item.title}
+                            </Text>
+                            <Image source={{uri: item.img_name }} style={styles.imgStyle}/>
+                            <HTML html={item.description} imagesMaxWidth={Dimensions.get('window').width} />
+                        </View>
                     ) }
                 />
             )
@@ -61,27 +68,53 @@ class AboutVillage extends Component {
 
     render() {
         let theme = colors[this.props.theme]
+        let win = Dimensions.get('window')
         return (
             <Container style={{ marginTop: StatusBar.currentHeight }}>
                 <Header2 title='About Village' navigationProps={this.props.navigation} />
-                <Tabs tabBarUnderlineStyle={{ backgroundColor: theme.themeColor}} style={{ backgroundColor: theme.themeColor}} locked={false} > 
+                <Tabs tabBarUnderlineStyle={{ backgroundColor: theme.themeColor}} style={{ backgroundColor: theme.themeColor }} locked={false} > 
                     <Tab heading="Notice" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.l2}} activeTextStyle={{color: theme.d2}} activeTabStyle={{backgroundColor: 'white'}}>
-                        <Content>
-                            {this.renderList()}
-                        </Content>
-
+                        {this.renderList(theme)}
                     </Tab>
                     <Tab heading="Institution" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.l2}} activeTextStyle={{color: theme.d2}} activeTabStyle={{backgroundColor: 'white'}}>
-                        <View style={{ height: 500, backgroundColor: 'white' }}>
-                            <Content>
-                                <Text>No data found</Text>
-                            </Content>
+                        <View style={{ height: 500, backgroundColor: 'white', alignItems: 'center' }}>
+                            <Image source={require('../../assets/no_data_found.png')} style={{ width: win.width, height: win.width }} tintColor={theme.themeColor}/>
+                            <Text>No data found</Text>
+                            <Button style={{ backgroundColor: theme.themeColor, paddingHorizontal: 20, alignSelf: 'center', marginTop: 30, borderRadius: 8, shadowOffset: { width: 0, height: 0} }}>
+                                <Text style={{ color: 'white' }}>REFRESH NOW</Text>
+                            </Button>
                         </View>                        
                     </Tab>
                 </Tabs>
             </Container>
         )
     }
+}
+
+const styles={
+    title: { 
+        paddingVertical: 10,
+        fontSize: 16 
+    },
+    imgStyle: {
+        height: 200,
+        width: '100%',
+    },
+    card: {
+        marginVertical: 10,
+        marginHorizontal: 10,
+        borderWidth: 0,
+        borderRadius: 4,
+        borderColor: '#ccc',
+        flexWrap: 'nowrap',
+        backgroundColor: '#fff',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.1,
+        shadowRadius: 10,
+        elevation: 16,
+        padding: 20
+    },
 }
 
 const mapStateToProps = (state) => {

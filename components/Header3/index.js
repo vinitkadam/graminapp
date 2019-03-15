@@ -30,15 +30,19 @@ class Header3 extends Component {
                     <Title>{`${this.props.title}`}</Title>
                 </Body>
                 <Right>
-                    <Button transparent style={{ marginLeft: 0, paddingLeft: 10, marginRight: 0, paddingRight: 5 }}>
+                    <Button transparent style={{ marginLeft: 0, paddingLeft: 10, marginRight: 0, paddingRight: 5 }} >
                         <EntypoIcon name='facebook-with-circle' style={{ color: 'white'}} size={30} />
                     </Button>
-                    <Button transparent style={{ marginLeft: 0, paddingLeft: 10, marginRight: 0, paddingRight: 5 }}>
+                    <Button 
+                        transparent 
+                        style={{ marginLeft: 0, paddingLeft: 10, marginRight: 0, paddingRight: 5 }}
+                        onPress={() => { this.props.navigationProps.navigate('important_contact_no')}}
+                    >
                         <AntDesignIcon name='contacts' style={{ color: 'white'}} size={30} />
                     </Button>
-                    <Button transparent style={{ marginLeft: 0, paddingLeft: 10, marginRight: 0, paddingRight: 0 }}>
+                    {/* <Button transparent style={{ marginLeft: 0, paddingLeft: 10, marginRight: 0, paddingRight: 0 }}>
                         <Icon name='md-megaphone' style={{ color: 'white'}} size={30} />
-                    </Button>
+                    </Button> */}
                     <Menu>
                         <MenuTrigger style={{ alignItems: 'center', justifyContent: 'center' }}>
                             <Button disabled transparent>
@@ -78,23 +82,23 @@ class Header3 extends Component {
                                         </Col>                                
                                     </Row>
                                 </ListItem>
-                                <MenuOption onSelect={() => alert(`About App`)} >
+                                <MenuOption onSelect={() => { this.props.navigationProps.navigate('about_app')}}>
                                 <ListItem disabled>
                                     <Text style={styles.popupText}>About App</Text>
                                 </ListItem>
                                 </MenuOption>
-                                <MenuOption onSelect={() => alert(`Contact US`)} >
+                                <MenuOption onSelect={() => { this.props.navigationProps.navigate('contactus')}} >
                                 <ListItem disabled>
                                     <Text style={styles.popupText}>Contact Us</Text>
                                 </ListItem>
                                 </MenuOption>
-                                <MenuOption onSelect={() => alert(`Terms and conditions`)} >
+                                <MenuOption onSelect={() => { this.props.navigationProps.navigate('terms_and_conditions')}} >
                                 <ListItem disabled>
                                     <Text style={styles.popupText}>Terms and Conditions</Text>
                                 </ListItem>
                                 </MenuOption>
                                 <MenuOption onSelect={() => alert(`Playstore link`)} >
-                                <ListItem disabled>
+                                <ListItem disabled noBorder>
                                     <Text style={styles.popupText}>Rate Us</Text>
                                 </ListItem>
                                 </MenuOption>

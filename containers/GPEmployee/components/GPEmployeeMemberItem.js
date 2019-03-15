@@ -34,7 +34,7 @@ class SamitiMemberItem extends Component {
                                 <Row>
                                     <Button transparent onPress={() => { Linking.openURL('tel: '+this.props.item.contactNumber) }}>
                                         <View>
-                                        <Row>
+                                        <Row style={{ alignItems: 'center' }}>
                                             <FeatherIcon name='phone-call' style={{ color: theme.themeColor, fontSize: 16, alignSelf: 'center'}}/>
                                             <Text style={{ color: theme.themeColor, fontSize: 16, paddingLeft: 5 }}>{this.props.item.contactNumber}</Text>
                                         </Row>

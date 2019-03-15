@@ -26,6 +26,10 @@ import Health from './containers/Health';
 import Schemes from './containers/Schemes';
 import Drawer from './components/Drawer'
 import AboutVillage from './containers/AboutVillage';
+import ContactUs from './containers/ContactUs';
+import AboutApp from './containers/AboutApp';
+import TermsAndConditions from './containers/TermsAndConditions';
+import ImportantContactNo from './containers/ImportantContactNo';
 
 const HomeStackNavigator = createStackNavigator({
   home: {
@@ -85,6 +89,10 @@ const AppDrawerNavigator = createDrawerNavigator({
 
 const AppStackNavigator = createStackNavigator({
   home_drawer: AppDrawerNavigator,
+  contactus: ContactUs,
+  about_app: AboutApp,
+  terms_and_conditions: TermsAndConditions,
+  important_contact_no: ImportantContactNo
 },{
   headerMode: 'none',
   navigationOptions: {

@@ -25,9 +25,9 @@ class Schemes extends Component {
                         </Container>
                     </Tab>
                     <Tab heading="Maha Yojna" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.themeColor}} activeTextStyle={{color: theme.themeColor}} activeTabStyle={{backgroundColor: 'white'}}>
-                            <WebView
-                                source={{uri: 'https://mahaschemes.maharashtra.gov.in/'}}
-                            />
+                        <WebView
+                            source={{uri: 'https://mahaschemes.maharashtra.gov.in/'}}
+                        />
                     </Tab>
                 </Tabs>
             </Container>

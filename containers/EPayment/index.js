@@ -6,10 +6,11 @@ import {
     ListItem,
     View,
     Spinner,
-    Button
+    Button, Right, Icon, Left
 } from 'native-base'
 import { connect } from 'react-redux'
 import { getPaymentList } from './actions'
+import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons'
 import Header2 from '../../components/Header2';
 
 
@@ -33,11 +34,17 @@ class EPayment extends Component {
             return (
                 <FlatList
                     data={this.props.epayment_list}
+                    keyExtractor={(item, index) => (item.id) }
                     renderItem={({ item }) => (
                         
                         <ListItem>
                             <Button transparent style={{ width: '100%'}} onPress={() => { Linking.openURL(item.payment_url)}}>
+                            <Left>
                                 <Text>{`${item.title}`}</Text>
+                            </Left>
+                            <Right>
+                                <SimpleLineIcons name="arrow-right" size={16} />
+                            </Right>
                             </Button>
                         </ListItem>
                     )}
