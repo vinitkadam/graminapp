@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { WebView, StatusBar } from 'react-native'
+import { StatusBar, WebView } from 'react-native'
 import {
     Container
 } from 'native-base'
@@ -9,7 +9,7 @@ class Videos extends Component {
     render() {
         return (
             <Container style={{ marginTop: StatusBar.currentHeight }}>
-                <Header2 title='Videos' navigationProps={this.props.navigation} />
+                <Header2 title='विडिओ' navigationProps={this.props.navigation} />
                 <WebView
                     source={{uri: 'https://www.youtube.com/'}}
                 />

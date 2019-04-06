@@ -18,7 +18,7 @@ class TaxPayment extends Component {
     render() {
         return (
             <Container style={{ marginTop: StatusBar.currentHeight }}>
-                <Header2 title='Tax Payment' navigationProps={this.props.navigation} />
+                <Header2 title='टॅक्स पेमेंट' navigationProps={this.props.navigation} />
                 {
                     this.renderWebView()
                 }

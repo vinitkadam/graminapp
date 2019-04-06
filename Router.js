@@ -30,6 +30,8 @@ import ContactUs from './containers/ContactUs';
 import AboutApp from './containers/AboutApp';
 import TermsAndConditions from './containers/TermsAndConditions';
 import ImportantContactNo from './containers/ImportantContactNo';
+import Weather from './containers/Weather';
+import Mandal from './containers/Mandal';
 
 const HomeStackNavigator = createStackNavigator({
   home: {
@@ -61,6 +63,9 @@ const HomeStackNavigator = createStackNavigator({
   },
   epayment: {
     screen: EPayment
+  },
+  mandal: {
+    screen: Mandal
   }
 },{
   headerMode: 'none',
@@ -73,8 +78,11 @@ const AppDrawerNavigator = createDrawerNavigator({
   homestack: {
     screen: HomeStackNavigator 
   },
-  education: {
-    screen: Education
+  // education: {
+  //   screen: Education
+  // },
+  weather: {
+    screen: Weather
   },
   health: {
     screen: Health

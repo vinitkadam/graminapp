@@ -56,7 +56,7 @@ class EPayment extends Component {
     render() {
         return (
             <Container style={{ marginTop: StatusBar.currentHeight }}>
-                <Header2 title='E-Payment' navigationProps={this.props.navigation} />
+                <Header2 title='ई-पेमेंट' navigationProps={this.props.navigation} />
                 <Content>
                     {
                         this.renderList()

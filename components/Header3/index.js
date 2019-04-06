@@ -52,7 +52,7 @@ class Header3 extends Component {
                         <MenuOptions>
                                 <ListItem style={{ flexDirection: 'column', alignItems: 'flex-start' }}>
                                     <Row>
-                                        <Text style={[{ paddingVertical: 5 }, styles.popupText]}>Change theme</Text>
+                                        <Text style={[{ paddingVertical: 5 }, styles.popupText]}>कलर थीम बदला</Text>
                                     </Row>
                                     <Row>
                                         <Col>
@@ -84,22 +84,22 @@ class Header3 extends Component {
                                 </ListItem>
                                 <MenuOption onSelect={() => { this.props.navigationProps.navigate('about_app')}}>
                                 <ListItem disabled>
-                                    <Text style={styles.popupText}>About App</Text>
+                                    <Text style={styles.popupText}>अँप माहिती</Text>
                                 </ListItem>
                                 </MenuOption>
                                 <MenuOption onSelect={() => { this.props.navigationProps.navigate('contactus')}} >
                                 <ListItem disabled>
-                                    <Text style={styles.popupText}>Contact Us</Text>
+                                    <Text style={styles.popupText}>संपर्क</Text>
                                 </ListItem>
                                 </MenuOption>
                                 <MenuOption onSelect={() => { this.props.navigationProps.navigate('terms_and_conditions')}} >
                                 <ListItem disabled>
-                                    <Text style={styles.popupText}>Terms and Conditions</Text>
+                                    <Text style={styles.popupText}>नियम व अटी</Text>
                                 </ListItem>
                                 </MenuOption>
                                 <MenuOption onSelect={() => alert(`Playstore link`)} >
                                 <ListItem disabled noBorder>
-                                    <Text style={styles.popupText}>Rate Us</Text>
+                                    <Text style={styles.popupText}>आम्हाला स्टार द्या</Text>
                                 </ListItem>
                                 </MenuOption>
                         </MenuOptions>

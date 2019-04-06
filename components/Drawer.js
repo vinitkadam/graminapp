@@ -4,6 +4,7 @@ import { Container, Content, Text, List, ListItem, View, Left, Body, Right, Row 
 import { connect } from 'react-redux'
 import Octicons from '@expo/vector-icons/Octicons'
 import FontAwesome from '@expo/vector-icons/FontAwesome'
+import Ionicons from '@expo/vector-icons/Ionicons'
 const routes = [
     {
         routeName: 'homestack',
@@ -29,7 +30,7 @@ const routes = [
 import { colors } from '../colors'
 class SideBar extends React.Component {
     getTintColor = (theme, routeName) => {
-        const tintColor = this.props.activeItemKey === routeName  ? theme.themeColor : null
+        const tintColor = this.props.activeItemKey === routeName  ? theme.themeColor : '#7d7d7d'
         return tintColor
     }
     render() {
@@ -64,9 +65,9 @@ class SideBar extends React.Component {
                     <View style={{ width: 40 }}>
                     <Image source={require('../assets/icons/home.png')} tintColor={this.getTintColor(theme, 'homestack')} />
                     </View>
-                    <Text style={{ color: this.getTintColor(theme, 'homestack') }}>{'Home'}</Text>
+                    <Text style={{ color: this.getTintColor(theme, 'homestack') }}>{'माझे गाव'}</Text>
                 </ListItem>
-                <ListItem
+                {/* <ListItem
                     button
                     onPress={() => this.props.navigation.navigate('education')}
                     style={{ paddingTop: 25, paddingBottom: 25 }}    
@@ -75,8 +76,18 @@ class SideBar extends React.Component {
                     <Image source={require('../assets/icons/scholar.png')} tintColor={this.getTintColor(theme, 'education')} />
                     </View>
                     <Text style={{ color: this.getTintColor(theme, 'education') }}>{'Education'}</Text>
-                </ListItem>
+                </ListItem> */}
                 <ListItem
+                    button
+                    onPress={() => this.props.navigation.navigate('weather')}
+                    style={{ paddingTop: 25, paddingBottom: 25 }}
+                >
+                    <View style={{ width: 40 }}>
+                    <Ionicons name='ios-partly-sunny' size={25} color={this.getTintColor(theme, 'weather')} />
+                    </View>
+                    <Text style={{ color: this.getTintColor(theme, 'weather') }}>{'हवामान '}</Text>
+                </ListItem>
+                {/* <ListItem
                     button
                     onPress={() => this.props.navigation.navigate('health')}
                     style={{ paddingTop: 25, paddingBottom: 25 }}
@@ -95,7 +106,7 @@ class SideBar extends React.Component {
                     <Image source={require('../assets/icons/businessman-in-apresentation-with-a-graphic-on-a-board.png')} tintColor={this.getTintColor(theme, 'schemes')} />
                     </View>
                     <Text style={{ color: this.getTintColor(theme, 'schemes') }}>{'Schemes'}</Text>
-                </ListItem>
+                </ListItem> */}
             </Content>
         </Container>
         );

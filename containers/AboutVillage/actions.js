@@ -9,7 +9,7 @@ export const getAboutVillageNotifications = () => {
         .then((response) => {
             if(response && response.status.toString() === '200') {
                 console.log(response)
-                dispatch({ type: SET_ABOUT_VILLAGE_NOTIFICATIONS, payload: { loading: false, about_village_notifications: response.data.data, error: false } })
+                dispatch({ type: SET_ABOUT_VILLAGE_NOTIFICATIONS, payload: { loading: false, about_village_notifications: response.data, error: false } })
             } else {
                 dispatch({ type: SET_EPAYMENT_LIST, payload: { loading: false, about_village_notifications: [], error: true } })
             }

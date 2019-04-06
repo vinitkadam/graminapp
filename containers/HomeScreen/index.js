@@ -29,73 +29,90 @@ class HomeScreen extends Component {
             />
         ),
     })
+
     render(){
         let theme = colors[this.props.theme]
         return(
             <Container style={{ marginTop: StatusBar.currentHeight}}>
-                <Header3 title='Prayojan' navigationProps={this.props.navigation} />
+                <Header3 title='माझे गाव' navigationProps={this.props.navigation} />
                 <Content>
                 <Grid>
                     <Row style={styles.rowStyle}>
                         <Col style={styles.colStyle}>
                             <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='aboutvillage'>
-                                <Image source={require('./assets/icons/house.png')}/>
-                                <Text style={styles.cardText}>About Village</Text>
+                                <Image source={require('./assets/icons/house.png')} tintColor={theme.l1} />
+                                <Text style={styles.cardText}>गावा विषयी</Text>
                                 
                             </GridCard>
                         </Col>
-                        <Col style={styles.colStyle}>
+                        {/* <Col style={styles.colStyle}>
                             <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='gpsamiti'>
-                            <Image source={require('./assets/icons/people.png')} />
+                            <Image source={require('./assets/icons/people.png')} tintColor={theme.l1} />
                                 <Text style={styles.cardText}>Gram Panchayat Committee</Text>
                             </GridCard>
-                        </Col>
-                        <Col style={[styles.colStyle, { paddingRight: 10 } ]}>
+                        </Col> */}
+                        {/* <Col style={[styles.colStyle, { paddingRight: 10 } ]}>
                             <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='gpemployee'>
-                                <Image source={require('./assets/icons/government-buildings-2.png')} />
+                                <Image source={require('./assets/icons/government-buildings-2.png')} tintColor={theme.l1} />
                                 <Text style={styles.cardText}>Gram Panchayat Employees</Text>
+                            </GridCard>
+                        </Col> */}
+                        <Col style={[styles.colStyle, { paddingRight: 10 }] }>
+                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='mandal'>
+                                <Image source={require('./assets/icons/government-buildings-2.png')} tintColor={theme.l1} />
+                                <Text style={styles.cardText}>मंडळ</Text>
                             </GridCard>
                         </Col>
                     </Row>
 
                     <Row style={styles.rowStyle}>
                         <Col style={styles.colStyle}>
+                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='taxpayment'>
+                                <Image source={require('./assets/icons/taxes.png')} tintColor={theme.l1}/>
+                                <Text style={styles.cardText}>टॅक्स पेमेंट</Text>
+                            </GridCard>
+                        </Col>
+
+                        <Col style={[styles.colStyle, { paddingRight: 10 } ]}>
+                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='epayment'>
+                                <Image source={require('./assets/icons/credit-card.png')} tintColor={theme.l1}/>
+                                <Text style={styles.cardText}>ई-पेमेंट</Text>
+                            </GridCard>
+                        </Col>
+                    </Row>
+
+                    {/* <Row style={styles.rowStyle}>
+                        <Col style={styles.colStyle}>
                             <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='rationcard'>
-                                <Image source={require('./assets/icons/leaflet.png')}/>
+                                <Image source={require('./assets/icons/leaflet.png')} tintColor={theme.l1}/>
                                 <Text style={styles.cardText}>Ration Card</Text>
                             </GridCard>
                         </Col>
                         <Col style={styles.colStyle}>
                             <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='certificates'>
-                                <Image source={require('./assets/icons/application-form.png')} />
+                                <Image source={require('./assets/icons/application-form.png')} tintColor={theme.l1} />
                                 <Text style={styles.cardText}>Certificates</Text>
                             </GridCard>
                         </Col>
                         <Col style={[styles.colStyle, { paddingRight: 10 } ]}>
                             <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='taxpayment'>
-                                <Image source={require('./assets/icons/taxes.png')} />
+                                <Image source={require('./assets/icons/taxes.png')} tintColor={theme.l1}/>
                                 <Text style={styles.cardText}>Tax Payment</Text>
                             </GridCard>
                         </Col>
-                    </Row>
+                    </Row> */}
 
                     <Row style={[styles.rowStyle, { paddingBottom: 30 }]}>
                         <Col style={styles.colStyle}>
                             <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='photogallery'>
-                                <Image source={require('./assets/icons/photos.png')}/>
-                                <Text style={styles.cardText}>Photo Gallery</Text>                                
-                            </GridCard>
-                        </Col>
-                        <Col style={styles.colStyle}>
-                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='videos'>
-                            <Image source={require('./assets/icons/youtube.png')} />
-                                <Text style={styles.cardText}>Videos</Text>
+                                <Image source={require('./assets/icons/photos.png')} tintColor={theme.l1}/>
+                                <Text style={styles.cardText}>फोटो गॅलरी</Text>                                
                             </GridCard>
                         </Col>
                         <Col style={[styles.colStyle, { paddingRight: 10 } ]}>
-                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='epayment'>
-                                <Image source={require('./assets/icons/credit-card.png')} />
-                                <Text style={styles.cardText}>E-payment</Text>
+                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='videos'>
+                            <Image source={require('./assets/icons/youtube.png')} tintColor={theme.l1}/>
+                                <Text style={styles.cardText}>विडिओ</Text>
                             </GridCard>
                         </Col>
                     </Row>
@@ -123,7 +140,7 @@ const styles = {
     cardText: {
         textAlign: 'center',
         marginTop: 10,
-        fontSize: 12
+        fontSize: 16
     }
 }
 

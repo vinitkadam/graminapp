@@ -24,7 +24,7 @@ class ContactUS extends Component {
         let theme = colors[this.props.theme]  
         return (
             <Container style={{ marginTop: StatusBar.currentHeight, justifyContent: 'space-between' }}>
-                <Header2 title='Contact Us' navigationProps={this.props.navigation}/>
+                <Header2 title='संपर्क ' navigationProps={this.props.navigation}/>
                 <View>
                     <Image style={{ alignSelf: 'center', marginBottom: 30 }} source={require('../../assets/icon.png')} />
                     <List>

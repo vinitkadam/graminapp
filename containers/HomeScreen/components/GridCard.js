@@ -54,8 +54,8 @@ export default class GridCard extends Component {
 
 const styles = {
     card: {
-        marginVertical: 5,
-        marginHorizontal: 2,
+        marginVertical: 0,
+        marginHorizontal: 5,
         borderWidth: 0,
         borderRadius: 4,
         borderColor: '#ccc',

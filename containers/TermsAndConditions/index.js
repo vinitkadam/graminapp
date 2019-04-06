@@ -14,8 +14,8 @@ class TermsAndConditions extends Component {
     render() {
         return (
             <Container style={{ marginTop: StatusBar.currentHeight}}>
-                <Header2 title='Terms and Conditions' navigationProps={this.props.navigation} />
-                <Text>TermsAndConditions</Text>
+                <Header2 title='नियम व अटी ' navigationProps={this.props.navigation} />
+                <Text>नियम व अटी </Text>
             </Container>
         );
     }

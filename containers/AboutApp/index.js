@@ -14,8 +14,8 @@ class AboutApp extends Component {
     render() {
         return (
             <Container style={{ marginTop: StatusBar.currentHeight}}>
-                <Header2 title='About App' navigationProps={this.props.navigation} />
-                <Text>AboutApp</Text>
+                <Header2 title='अँप माहिती' navigationProps={this.props.navigation} />
+                <Text>अँप माहिती </Text>
             </Container>
         );
     }

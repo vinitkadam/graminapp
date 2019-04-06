@@ -71,12 +71,12 @@ class AboutVillage extends Component {
         let win = Dimensions.get('window')
         return (
             <Container style={{ marginTop: StatusBar.currentHeight }}>
-                <Header2 title='About Village' navigationProps={this.props.navigation} />
+                <Header2 title='गावा विषयी' navigationProps={this.props.navigation} />
                 <Tabs tabBarUnderlineStyle={{ backgroundColor: theme.themeColor}} style={{ backgroundColor: theme.themeColor }} locked={false} > 
-                    <Tab heading="Notice" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.l2}} activeTextStyle={{color: theme.d2}} activeTabStyle={{backgroundColor: 'white'}}>
+                    <Tab heading="सूचना" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.l2}} activeTextStyle={{color: theme.d2}} activeTabStyle={{backgroundColor: 'white'}}>
                         {this.renderList(theme)}
                     </Tab>
-                    <Tab heading="Institution" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.l2}} activeTextStyle={{color: theme.d2}} activeTabStyle={{backgroundColor: 'white'}}>
+                    <Tab heading="ग्रामपंचायत" tabStyle={{backgroundColor: 'white'}} textStyle={{color: theme.l2}} activeTextStyle={{color: theme.d2}} activeTabStyle={{backgroundColor: 'white'}}>
                         <View style={{ height: 500, backgroundColor: 'white', alignItems: 'center' }}>
                             <Image source={require('../../assets/no_data_found.png')} style={{ width: win.width, height: win.width }} tintColor={theme.themeColor}/>
                             <Text>No data found</Text>
@@ -121,7 +121,7 @@ const mapStateToProps = (state) => {
     return {
         theme: state.theme.theme,
         loading: state.about_village.loading,
-        about_village_notifications: state.about_village.about_village_notifications,
+        about_village_notifications: state.about_village.about_village_notifications.data,
         error: state.about_village.error,
     };
 };
