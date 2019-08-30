@@ -14,7 +14,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#ffca05"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -28,6 +28,9 @@
     },
     "android": {
       "package": "com.sahyadrishtsadavli.sahyadrishtsadavli"
-    }
+    },
+    "facebookScheme": "fb513584486082509",
+    "facebookAppId": "513584486082509",
+    "facebookDisplayName": "Sadavalikar"
   }
 }

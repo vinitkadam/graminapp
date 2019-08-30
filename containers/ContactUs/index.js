@@ -10,7 +10,7 @@ import {
     List,
     ListItem,
     Icon,
-    Left, 
+    Left,
     Button,
     Right,
 } from 'native-base'
@@ -21,46 +21,36 @@ import Header2 from '../../components/Header2';
 
 class ContactUS extends Component {
     render() {
-        let theme = colors[this.props.theme]  
+        let theme = colors[this.props.theme]
         return (
             <Container style={{ marginTop: StatusBar.currentHeight, justifyContent: 'space-between' }}>
-                <Header2 title='संपर्क ' navigationProps={this.props.navigation}/>
+                <Header2 title='संपर्क ' navigationProps={this.props.navigation} />
                 <View>
                     <Image style={{ alignSelf: 'center', marginBottom: 30 }} source={require('../../assets/icon.png')} />
                     <List>
                         <ListItem icon noBorder>
-                        <Left>
-                            <Button style={{ backgroundColor: theme.themeColor }}>
-                                <Icon name="ios-call" />    
-                            </Button>
-                        </Left>
-                        <Body>
-                            <Text>09876543210</Text>
-                        </Body>
+                            <Left>
+                                <Button style={{ backgroundColor: theme.themeColor }}>
+                                    <Icon name="ios-call" />
+                                </Button>
+                            </Left>
+                            <Body>
+                                <Text>9028591113</Text>
+                            </Body>
                         </ListItem>
                         <ListItem icon noBorder>
-                        <Left>
-                            <Button style={{ backgroundColor: theme.themeColor }}>
-                            <Icon name="ios-globe" />    
-                            </Button>
-                        </Left>
-                        <Body>
-                            <Text>website</Text>
-                        </Body>
-                        </ListItem>
-                        <ListItem icon noBorder>
-                        <Left>
-                            <Button style={{ backgroundColor: theme.themeColor }}>
-                                <Icon name="ios-mail" />
-                            </Button>
-                        </Left>
-                        <Body>
-                            <Text>email@email.com</Text>
-                        </Body>                    
+                            <Left>
+                                <Button style={{ backgroundColor: theme.themeColor }}>
+                                    <Icon name="ios-mail" />
+                                </Button>
+                            </Left>
+                            <Body>
+                                <Text></Text>
+                            </Body>
                         </ListItem>
                     </List>
                 </View>
-                <Image source={require('./images/footer.png')} style={{ height: 60, width: Dimensions.get('window').width, }}/>
+                <Image source={require('./images/footer.png')} style={{ height: 60, width: Dimensions.get('window').width, }} />
             </Container>
         )
     }

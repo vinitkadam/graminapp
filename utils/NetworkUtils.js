@@ -7,9 +7,9 @@ class Service {
     constructor() {
         let service = null;
         service = axios.create({
-        headers: {
-            'Content-Type': 'application/json'
-        }
+            headers: {
+                'Content-Type': 'application/json'
+            }
         });
         service.interceptors.response.use(this.handleSuccess, this.handleError);
         this.service = service;
@@ -21,67 +21,77 @@ class Service {
 
     handleError = (error) => {
         switch (error.code) {
-        case 400: 
-            console.log(error);
-            console.log('401: Something went wrong');
-            break;
-        case 401:
-            console.log(error);
-            console.log('401: Something went wrong');
-            break;
-        case 409: 
-            console.log(error);
-            //alert(error.response.message);
-            console.log('409: Something went wrong');
-            break;
-        case 404:
-            console.log('404: Something went wrong!');
-            break;
-        case 500:
-            console.log('500: Something went wrong!');
-            break;
-        default:
-            console.log(error);
-            break;
+            case 400:
+                console.log(error);
+                console.log('400 : Something went wrong');
+                break;
+            case 401:
+                console.log(error);
+                console.log('401: Something went wrong');
+                break;
+            case 409:
+                console.log(error);
+                //alert(error.response.message);
+                console.log('409: Something went wrong');
+                break;
+            case 404:
+                console.log('404: Something went wrong!');
+                break;
+            case 500:
+                console.log('500: Something went wrong!');
+                break;
+            default:
+                console.log(error);
+                break;
         }
     }
-    
+
     get(path, options) {
         return this.service.get(path, {
-        ...options,
+            ...options,
         })
-        .then((response) => Promise.resolve(response))
-        .catch((error) => Promise.reject(error))
+            .then((response) => Promise.resolve(response))
+            .catch((error) => Promise.reject(error))
     }
 
     patch(path, options) {
         return this.service.request({
-        method: 'PATCH',
-        url: path,
-        ...options
+            method: 'PATCH',
+            url: path,
+            ...options
         })
-        .then((response) => Promise.resolve(response))
-        .catch((error) => Promise.reject(error))
+            .then((response) => Promise.resolve(response))
+            .catch((error) => Promise.reject(error))
+    }
+
+    put(path, options) {
+        return this.service.request({
+            method: 'put',
+            url: path,
+            ...options
+        })
+            .then((response) => Promise.resolve(response))
+            .catch((error) => Promise.reject(error))
     }
 
     post(path, options) {
         return this.service.request({
-        method: 'POST',
-        url: path,
-        ...options
+            method: 'POST',
+            url: path,
+            ...options
         })
-        .then((response) => Promise.resolve(response))
-        .catch((error) => Promise.reject(error))
+            .then((response) => Promise.resolve(response))
+            .catch((error) => Promise.reject(error))
     }
 
-    delete(path, options){
+    delete(path, options) {
         return this.service.request({
-        method: 'DELETE',
-        url: path,
-        ...options
+            method: 'DELETE',
+            url: path,
+            ...options
         })
-        .then((response) => Promise.resolve(response))
-        .catch((error) => Promise.reject(error))
+            .then((response) => Promise.resolve(response))
+            .catch((error) => Promise.reject(error))
     }
 }
 

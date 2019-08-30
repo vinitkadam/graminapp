@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StatusBar, FlatList, Text, Linking, Image, Dimensions } from 'react-native'
+import { StatusBar, FlatList, Text, Linking, Image, Dimensions, StyleSheet } from 'react-native'
 import {
     Container,
     Content,
@@ -9,7 +9,7 @@ import {
     Button, Right, Icon, Left
 } from 'native-base'
 import { connect } from 'react-redux'
-import HTML from 'react-native-render-html';
+import HTML from 'react-native-htmlview';
 import { getMandalList } from './actions'
 import Header2 from '../../components/Header2';
 import { colors } from '../../colors'
@@ -19,15 +19,15 @@ class Mandal extends Component {
     componentDidMount() {
         this.props.getMandalList()
     }
-    
+
     renderList = (theme) => {
-        if(this.props.loading){
+        if (this.props.loading) {
             return (
                 <Container style={{ alignItems: 'center', justifyContent: 'center' }}>
                     <Spinner color='blue' />
                 </Container>
             )
-        }else if(this.props.error){
+        } else if (this.props.error) {
             return (
                 <Text>error</Text>
             )
@@ -35,14 +35,17 @@ class Mandal extends Component {
             return (
                 <FlatList
                     data={this.props.mandal_list}
-                    keyExtractor={(item, index) => (item.id) }
+                    keyExtractor={(item, index) => (item.id)}
                     renderItem={({ item }) => (
                         <View style={styles.card}>
                             <Text style={[styles.title, { color: theme.themeColor }]}>
                                 {item.title}
                             </Text>
-                            <Image source={{uri: item.img_name }} style={styles.imgStyle}/>
-                            <HTML html={item.description} imagesMaxWidth={Dimensions.get('window').width} />
+                            <Image source={{ uri: item.img_name }} style={styles.imgStyle} />
+                            <HTML value={item.description}
+                                stylesheet={htmlstyles}
+
+                            />
                         </View>
                     )}
                 />
@@ -66,14 +69,15 @@ class Mandal extends Component {
     }
 }
 
-const styles={
-    title: { 
+const styles = {
+    title: {
         paddingVertical: 10,
-        fontSize: 16 
+        fontSize: 16
     },
     imgStyle: {
         height: 200,
         width: '100%',
+        resizeMode: 'contain'
     },
     card: {
         marginVertical: 10,
@@ -91,6 +95,16 @@ const styles={
         padding: 20
     },
 }
+
+const htmlstyles = StyleSheet.create({
+    a: {
+        fontWeight: '300',
+        color: '#FF3366', // make links coloured pink
+    },
+    p: {
+        lineHeight: 20,
+    }
+});
 
 const mapStateToProps = state => {
     return {

@@ -9,7 +9,6 @@ import {
     Button, Right, Icon, Left
 } from 'native-base'
 import { connect } from 'react-redux'
-import HTML from 'react-native-render-html';
 import { getWeatherList } from './actions'
 import Header3 from '../../components/Header3';
 import { colors } from '../../colors'
@@ -20,15 +19,15 @@ class Weather extends Component {
     componentDidMount() {
         this.props.getWeatherList()
     }
-    
+
     renderList = (theme, city) => {
-        if(this.props.loading){
+        if (this.props.loading) {
             return (
                 <Container style={{ alignItems: 'center', justifyContent: 'center' }}>
-                    <Spinner color='blue' />
+                    <Spinner color={theme.themeColor} />
                 </Container>
             )
-        }else if(this.props.error){
+        } else if (this.props.error) {
             return (
                 <Text>error</Text>
             )
@@ -36,7 +35,7 @@ class Weather extends Component {
             return (
                 <FlatList
                     data={this.props.weather_list.list}
-                    keyExtractor={(item, index) => (item.dt) }
+                    keyExtractor={(item, index) => (item.dt)}
                     renderItem={({ item }) => (
                         <WeatherItem item={item} location={this.props.weather_list.city} />
                     )}
@@ -47,8 +46,6 @@ class Weather extends Component {
 
     render() {
         let theme = colors[this.props.theme]
-        console.log(this.props.loading)
-        console.log(this.props.weather_list)
         return (
             <Container style={{ marginTop: StatusBar.currentHeight }}>
                 <Header3 title='हवामान' navigationProps={this.props.navigation} />
@@ -62,10 +59,10 @@ class Weather extends Component {
     }
 }
 
-const styles={
-    title: { 
+const styles = {
+    title: {
         paddingVertical: 10,
-        fontSize: 16 
+        fontSize: 16
     },
     imgStyle: {
         height: 200,

@@ -9,6 +9,7 @@ import {
     Button
 } from 'native-base'
 import { connect } from 'react-redux'
+import moment from 'moment'
 import FeatherIcon from '@expo/vector-icons/Feather'
 import { colors } from '../../../colors'
 import Ionicons from '@expo/vector-icons/Ionicons'
@@ -36,6 +37,10 @@ class WeatherItem extends Component {
         }
         return ('#32cdfc')
     } 
+
+    getDateTime = (datetime) => {
+        return moment(datetime).format('LLL');
+    }
     render() {
         let theme = colors[this.props.theme]  
         return (
@@ -49,16 +54,16 @@ class WeatherItem extends Component {
                                     <Text style={{ color: theme.themeColor, fontSize: 18 }}>{'स्थानिक हवामान - ' + this.props.location.name}</Text>
                                 </Row>
                                 <Row>
-                                    <Text style={{ color: '#1c1c1c', fontSize: 14 }}>date</Text>
+                                    <Text style={{ color: '#1c1c1c', fontSize: 14 }}>{this.getDateTime(this.props.item.dt_txt)}</Text>
                                 </Row>
                                 <Row>
-                                    <Text style={{ color: '#1c1c1c', fontSize: 30 }}>{this.props.item.main.temp + ' °C'}</Text>
+                                    <Text style={{ color: '#1c1c1c', fontSize: 42 }}>{this.props.item.main.temp + ' °C'}</Text>
                                 </Row>
                                 <Row>
                                     <Text style={{ color: '#1c1c1c', fontSize: 18 }}>{'आद्रता: ' + this.props.item.main.humidity + ' %'}</Text>
                                 </Row>
                                 <Row>
-                                    <Text style={{ color: '#1c1c1c', fontSize: 18 }}>{this.props.item.weather[0].description}</Text>
+                                    <Text style={{ color: '#1c1c1c', fontSize: 22 }}>{this.props.item.weather[0].description}</Text>
                                 </Row>
                             </Grid>
                         </Col>

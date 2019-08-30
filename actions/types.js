@@ -21,3 +21,18 @@ export const SET_WEATHER_LIST = 'set_weather_list'
 //Photo gallery
 export const SET_LOADING_PHOTO_GALLERY = 'set_loading_photo_gallery'
 export const SET_PHOTO_GALLERY_LIST = 'set_photo_gallery_list'
+
+//Search user
+export const SET_LOADIND_SEARCH_USER = 'set_loading_search_user'
+export const SET_SEARCH_USER_LIST = 'set_search_user_list'
+
+//send user data 
+export const SET_USER_DATA_LOADING = 'SET_USER_DATA_LOADING'
+export const SET_USER_DATA_LOGIN = 'set_user_data_login'
+export const SET_USER_DATA_PROFILE = 'set_user_data_profile'
+
+//update user data
+export const UPDATE_USER_DATA_LOADING = 'update_user_data_loading'
+export const UPDATE_USER_DATA = 'update_user_data'
+
+export const LOGOUT = 'logout'

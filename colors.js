@@ -63,5 +63,10 @@ export const colors = {
         d4: '#64831f',
         d5: '#536d1a',
         themeColor: '#a2d13c'
+    },
+    homeScreen: {
+        row1: '#c7702f',
+        row2: '#3D4E5A',
+        row3: '#9b0617',
     }
 }

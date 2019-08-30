@@ -6,11 +6,13 @@ import AboutVillage from '../containers/AboutVillage/reducer'
 import Mandal from '../containers/Mandal/reducer'
 import Weather from '../containers/Weather/reducer'
 import PhotoGallery from '../containers/PhotoGallery/reducer'
+import SearchUser from '../containers/PhotoGallery/reducer'
+import Authreducer from '../containers/Auth/reducer'
 
 const config = {
     key: 'primary',
     storage,
-    whitelist: ['theme']
+    whitelist: ['theme', 'auth']
 };
 
 export default persistCombineReducers(config, {
@@ -19,5 +21,7 @@ export default persistCombineReducers(config, {
     about_village: AboutVillage,
     mandal: Mandal,
     weather: Weather,
-    photo_gallery: PhotoGallery
+    photo_gallery: PhotoGallery,
+    search_users: SearchUser,
+    auth: Authreducer
 });

@@ -1,10 +1,10 @@
 {
+  "webpackServerPort": null,
+  "expoServerNgrokUrl": "https://x2-95e.anonymous.gramin.exp.direct",
+  "packagerNgrokUrl": "https://packager.x2-95e.anonymous.gramin.exp.direct",
+  "ngrokPid": 8800,
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 1532,
-  "expoServerNgrokUrl": "https://ih-mbk.vinitkadam1997.gramin.exp.direct",
-  "packagerNgrokUrl": "https://packager.ih-mbk.vinitkadam1997.gramin.exp.direct",
-  "ngrokPid": 6584,
-  "webpackServerPort": null
+  "packagerPid": 7312
 }

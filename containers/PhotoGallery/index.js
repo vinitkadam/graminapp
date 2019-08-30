@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { WebView, StatusBar, FlatList, Image, View, Text, Dimensions, ImageBackground } from 'react-native'
 import {
-    Container, Card
+    Container, Card, Button
 } from 'native-base'
 import { connect } from 'react-redux'
 import { getPhotoGalleryList } from './actions'
 import Header2 from '../../components/Header2';
+import CustomButton from './Components/CustomButton'
 
 class PhotoGallery extends Component {
     
@@ -16,15 +17,18 @@ class PhotoGallery extends Component {
     renderImages = () => {
         return(
             <FlatList
+                keyExtractor={(item, index) => item.id}
                 style={{ paddingBottom: 20 }}
                 data={this.props.photo_gallery_list}
                 keyExtractor={(item, index) => (item.id) }
                 renderItem={({ item }) => (
-                    <ImageBackground style={[styles.card,styles.imgStyle ]} source={{ uri: item.file_name }}>
-                        <Text style={[styles.title]}>
-                            {item.title}
-                        </Text>
-                    </ImageBackground>
+                    <CustomButton navigationProps={this.props.navigation} routeName='displayPhotoGrid' params={{ id: item.id, title: item.title }} >
+                        <ImageBackground style={[styles.card,styles.imgStyle ]} source={{ uri: item.file_name }}>
+                            <Text style={[styles.title]}>
+                                {item.title}
+                            </Text>
+                        </ImageBackground>
+                    </CustomButton>
                 )}
             />
         )
@@ -59,8 +63,6 @@ const styles={
     },
     card: {
         justifyContent: 'flex-end',
-        marginVertical: 10,
-        marginHorizontal: 10,
         borderWidth: 0,
         borderRadius: 4,
         borderColor: '#ccc',
