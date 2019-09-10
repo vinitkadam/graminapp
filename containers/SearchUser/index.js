@@ -83,7 +83,7 @@ class SearchUser extends Component {
                                 <Row>
                                     <Col style={{ alignItems: 'center', justifyContent: 'center', width: win.width / 3 }}>
                                         <Image
-                                            source={require('../../assets/icon.png')}
+                                            source={{ uri: item.img_url }}
                                             style={{ alignSelf: 'center', height: win.width / 3 - 20, width: win.width / 3 - 20, borderRadius: 30 }}
                                         />
                                     </Col>
@@ -92,23 +92,19 @@ class SearchUser extends Component {
                                             <Left><Icon style={{ fontSize: 17 }} name="ios-person" /></Left>
                                             <Body><Text>{item.name}</Text></Body>
                                         </ListItem>
-                                        <ListItem icon onPress={() => Linking.tel(item.contact)}>
+                                        <ListItem icon onPress={() => { Linking.openURL(`tel:${item.contact}`); }} >
                                             <Left><Icon style={{ fontSize: 17 }} name="md-call" /></Left>
                                             <Body><Text>{item.contact}</Text></Body>
                                         </ListItem>
-                                        <ListItem icon>
+                                        <ListItem icon onPress={() => { Linking.openURL(`mailto:${item.email_id}`); }} >
                                             <Left><Entypo style={{ fontWeight: 'bold', fontSize: 17 }} name="email" /></Left>
                                             <Body><Text>{item.email_id}</Text></Body>
                                         </ListItem>
                                     </Col>
                                 </Row>
                                 <Row>
-                                    <Col>
-                                        <ListItem icon>
-                                            <Left><Icon style={{ fontSize: 18 }} active name="ios-pin" /></Left>
-                                            <Body><Text>{item.address}</Text></Body>
-                                        </ListItem>
-                                    </Col>
+                                    <Col style={{ width: 40, justifyContent: 'center', alignItems: 'center' }}><Icon style={{ fontSize: 18 }} active name="ios-pin" /></Col>
+                                    <Col style={{ paddingVertical: 10 }}><Text>{item.address}</Text></Col>
                                 </Row>
                             </Card>
                         )
@@ -123,7 +119,7 @@ class SearchUser extends Component {
         console.log(this.props.search_users_list)
         return (
             <Container style={{ marginTop: StatusBar.currentHeight }}>
-                <Header2 title='Search User' navigationProps={this.props.navigation} />
+                <Header2 title='सभासद शोधा' navigationProps={this.props.navigation} />
                 <Item style={{ backgroundColor: '#ededed', borderRadius: 30, margin: 10, borderBottomWidth: 0, paddingHorizontal: 15 }} last>
                     <Input
                         autoFocus

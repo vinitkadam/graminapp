@@ -2,31 +2,8 @@ import React from "react";
 import { AppRegistry, Image, StatusBar, ImageBackground } from "react-native";
 import { Container, Content, Text, List, ListItem, View, Left, Body, Right, Row } from "native-base";
 import { connect } from 'react-redux'
-import Octicons from '@expo/vector-icons/Octicons'
-import FontAwesome from '@expo/vector-icons/FontAwesome'
 import Ionicons from '@expo/vector-icons/Ionicons'
-const routes = [
-    {
-        routeName: 'homestack',
-        routeTitle: 'Home',
-        icon: '../assets/icons/home.png'
-    },
-    {
-        routeName: 'education',
-        routeTitle: 'Education',
-        icon: '../assets/icons/scholar.png'
-    },
-    {
-        routeName: 'health',
-        routeTitle: 'Health',
-        icon: '../assets/icons/stethoscope.png'
-    },
-    {
-        routeName: 'schemes',
-        routeTitle: 'Schemes',
-        icon: '../assets/icons/businessman-in-apresentation-with-a-graphic-on-a-board.png'
-    }
-]
+
 import { colors } from '../colors'
 class SideBar extends React.Component {
     getTintColor = (theme, routeName) => {

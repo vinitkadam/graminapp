@@ -16,6 +16,7 @@ import {
     Content,
     Button,
     Spinner,
+    Row,
 } from "native-base";
 
 import Axios from 'axios'
@@ -110,22 +111,24 @@ class Login extends Component {
                 {this.state.loading && <Spinner />}
                 {!this.state.loading
                     &&
-                    <Button
-                        onPress={() => this.logIn()}
-                        style={{
-                            alignSelf: 'center',
-                            backgroundColor: '#3b5999',
-                            paddingVertical: 15,
-                            borderRadius: 10,
-                            justifyContent: 'center'
-                        }}
-                    >
-                        <Icons
-                            name='facebook'
-                            style={{ color: 'white', fontSize: 20, marginHorizontal: 10 }}
-                        />
-                        <Text style={{ paddingLeft: 5, paddingRight: 15, fontSize: 18, color: 'white' }}>Login with facebook</Text>
-                    </Button>
+                    <View>
+                        <Button
+                            onPress={() => this.logIn()}
+                            style={{
+                                alignSelf: 'center',
+                                backgroundColor: '#3b5999',
+                                paddingVertical: 15,
+                                borderRadius: 10,
+                                justifyContent: 'center'
+                            }}
+                        >
+                            <Icons
+                                name='facebook'
+                                style={{ color: 'white', fontSize: 20, marginHorizontal: 10 }}
+                            />
+                            <Text style={{ paddingLeft: 5, paddingRight: 15, fontSize: 18, color: 'white' }}>Login with facebook</Text>
+                        </Button>
+                    </View>
                 }
             </Container>
         );

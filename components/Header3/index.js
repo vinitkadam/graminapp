@@ -34,13 +34,13 @@ class Header3 extends Component {
                     <Button transparent style={{ marginLeft: 0, paddingLeft: 10, marginRight: 0, paddingRight: 5 }} >
                         <EntypoIcon name='facebook-with-circle' style={{ color: 'white' }} size={30} />
                     </Button>
-                    <Button
+                    {/* <Button
                         transparent
                         style={{ marginLeft: 0, paddingLeft: 10, marginRight: 0, paddingRight: 5 }}
                         onPress={() => { this.props.navigationProps.navigate('search_user') }}
                     >
                         <MaterialComunityIcons name='account-search' style={{ color: 'white' }} size={30} />
-                    </Button>
+                    </Button> */}
                     <Menu>
                         <MenuTrigger style={{ alignItems: 'center', justifyContent: 'center' }}>
                             <Button disabled transparent>

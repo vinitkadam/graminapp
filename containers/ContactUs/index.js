@@ -1,18 +1,14 @@
 import React, { Component } from 'react'
-import { Text, StatusBar, Image, Dimensions } from 'react-native'
+import { Text, StatusBar, Image, Dimensions, Linking } from 'react-native'
 import {
     Container,
-    Footer,
     Body,
-    Content,
-    FooterTab,
     View,
     List,
     ListItem,
     Icon,
     Left,
     Button,
-    Right,
 } from 'native-base'
 import { connect } from 'react-redux'
 import ThemeReducer from '../../reducers/ThemeReducer';
@@ -30,22 +26,26 @@ class ContactUS extends Component {
                     <List>
                         <ListItem icon noBorder>
                             <Left>
-                                <Button style={{ backgroundColor: theme.themeColor }}>
+                                <Button style={{ backgroundColor: theme.themeColor }} onPress={() => { Linking.openURL(`tel:9028591113`); }}>
                                     <Icon name="ios-call" />
                                 </Button>
                             </Left>
                             <Body>
-                                <Text>9028591113</Text>
+                                <Button transparent onPress={() => { Linking.openURL(`tel:9028591113`); }}>
+                                    <Text>9028591113</Text>
+                                </Button>
                             </Body>
                         </ListItem>
                         <ListItem icon noBorder>
                             <Left>
-                                <Button style={{ backgroundColor: theme.themeColor }}>
+                                <Button style={{ backgroundColor: theme.themeColor }} onPress={() => { Linking.openURL(`mailto:sammeer.jadhav@gmail.com`); }}>
                                     <Icon name="ios-mail" />
                                 </Button>
                             </Left>
                             <Body>
-                                <Text></Text>
+                                <Button transparent onPress={() => { Linking.openURL(`mailto:sammeer.jadhav@gmail.com`); }}>
+                                    <Text>sammeer.jadhav@gmail.com</Text>
+                                </Button>
                             </Body>
                         </ListItem>
                     </List>

@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import { MenuProvider } from 'react-native-popup-menu'
-import { 
-    StatusBar, 
-    Dimensions,     
+import {
+    StatusBar,
+    Dimensions,
     Text,
     Image
 } from 'react-native'
-import { 
-    Container,  
-    Icon,  
-    Grid, 
-    Col, 
-    Row, 
+import {
+    Container,
+    Icon,
+    Grid,
+    Col,
+    Row,
     Content
 } from 'native-base'
 import { connect } from 'react-redux'
@@ -30,93 +30,60 @@ class HomeScreen extends Component {
         ),
     })
 
-    render(){
+    render() {
         let theme = colors[this.props.theme]
-        return(
-            <Container style={{ marginTop: StatusBar.currentHeight}}>
+        return (
+            <Container style={{ marginTop: StatusBar.currentHeight }}>
                 <Header3 title='माझे गाव' navigationProps={this.props.navigation} />
                 <Content>
-                <Grid>
-                    <Row style={styles.rowStyle}>
-                        <Col style={styles.colStyle}>
-                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='aboutvillage'>
-                                <Image source={require('../../assets/icons/gava-vishayi.png')} style={styles.iconImage} />
-                                <Text style={styles.cardText}>गावा विषयी</Text>
-                                
-                            </GridCard>
-                        </Col>
-                        {/* <Col style={styles.colStyle}>
-                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='gpsamiti'>
-                            <Image source={require('./assets/icons/people.png')} />
-                                <Text style={styles.cardText}>Gram Panchayat Committee</Text>
-                            </GridCard>
-                        </Col> */}
-                        {/* <Col style={[styles.colStyle, { paddingRight: 10 } ]}>
-                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='gpemployee'>
-                                <Image source={require('./assets/icons/government-buildings-2.png')} />
-                                <Text style={styles.cardText}>Gram Panchayat Employees</Text>
-                            </GridCard>
-                        </Col> */}
-                        <Col style={[styles.colStyle, { paddingRight: 10 }] }>
-                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='mandal'>
-                                <Image source={require('../../assets/icons/mandal.png')}  style={styles.iconImage} />
-                                <Text style={styles.cardText}>मंडळ</Text>
-                            </GridCard>
-                        </Col>
-                    </Row>
+                    <Grid>
+                        <Row style={styles.rowStyle}>
+                            <Col style={styles.colStyle}>
+                                <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='aboutvillage'>
+                                    <Image source={require('../../assets/icons/gava-vishayi.png')} style={styles.iconImage} />
+                                    <Text style={styles.cardText}>गावा विषयी</Text>
 
-                    <Row style={styles.rowStyle}>
-                        <Col style={styles.colStyle}>
-                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='taxpayment'>
-                                <Image source={require('../../assets/icons/tax-payment.png')} style={styles.iconImage} />
-                                <Text style={styles.cardText}>टॅक्स पेमेंट</Text>
-                            </GridCard>
-                        </Col>
+                                </GridCard>
+                            </Col>
+                            <Col style={[styles.colStyle, { paddingRight: 10 }]}>
+                                <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='mandal'>
+                                    <Image source={require('../../assets/icons/mandal.png')} style={styles.iconImage} />
+                                    <Text style={styles.cardText}>मंडळ</Text>
+                                </GridCard>
+                            </Col>
+                        </Row>
 
-                        <Col style={[styles.colStyle, { paddingRight: 10 } ]}>
-                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='epayment'>
-                                <Image source={require('../../assets/icons/e-payment.png')} style={styles.iconImage} />
-                                <Text style={styles.cardText}>ई-पेमेंट</Text>
-                            </GridCard>
-                        </Col>
-                    </Row>
+                        <Row style={styles.rowStyle}>
+                            <Col style={styles.colStyle}>
+                                <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='search_user'>
+                                    <Image source={require('../../assets/icons/male_user_search.png')} style={[styles.iconImage, { width: 50 }]} />
+                                    <Text style={styles.cardText}>सभासद शोधा</Text>
+                                </GridCard>
+                            </Col>
 
-                    {/* <Row style={styles.rowStyle}>
-                        <Col style={styles.colStyle}>
-                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='rationcard'>
-                                <Image source={require('./assets/icons/leaflet.png')} />
-                                <Text style={styles.cardText}>Ration Card</Text>
-                            </GridCard>
-                        </Col>
-                        <Col style={styles.colStyle}>
-                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='certificates'>
-                                <Image source={require('./assets/icons/application-form.png')} />
-                                <Text style={styles.cardText}>Certificates</Text>
-                            </GridCard>
-                        </Col>
-                        <Col style={[styles.colStyle, { paddingRight: 10 } ]}>
-                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='taxpayment'>
-                                <Image source={require('./assets/icons/taxes.png')} />
-                                <Text style={styles.cardText}>Tax Payment</Text>
-                            </GridCard>
-                        </Col>
-                    </Row> */}
+                            <Col style={[styles.colStyle, { paddingRight: 10 }]}>
+                                <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='epayment'>
+                                    <Image source={require('../../assets/icons/e-payment.png')} style={styles.iconImage} />
+                                    <Text style={styles.cardText}>ई-पेमेंट</Text>
+                                </GridCard>
+                            </Col>
+                        </Row>
 
-                    <Row style={[styles.rowStyle, { paddingBottom: 30 }]}>
-                        <Col style={styles.colStyle}>
-                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='photogallery'>
-                                <Image source={require('../../assets/icons/photo-gallery.png')} style={styles.iconImage} />
-                                <Text style={styles.cardText}>फोटो गॅलरी</Text>                                
-                            </GridCard>
-                        </Col>
-                        <Col style={[styles.colStyle, { paddingRight: 10 } ]}>
-                            <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='videos'>
-                                <Image source={require('../../assets/icons/video.png')} style={styles.iconImage} />
-                                <Text style={styles.cardText}>विडिओ</Text>
-                            </GridCard>
-                        </Col>
-                    </Row>
-                </Grid>
+                        <Row style={[styles.rowStyle, { paddingBottom: 30 }]}>
+                            <Col style={styles.colStyle}>
+                                <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='photogallery'>
+                                    <Image source={require('../../assets/icons/photo-gallery.png')} style={styles.iconImage} />
+                                    <Text style={styles.cardText}>फोटो गॅलरी</Text>
+                                </GridCard>
+                            </Col>
+                            <Col style={[styles.colStyle, { paddingRight: 10 }]}>
+                                <GridCard style={styles.cardStyle} navigationProps={this.props.navigation} routeName='videos'>
+                                    <Image source={require('../../assets/icons/video.png')} style={styles.iconImage} />
+                                    <Text style={styles.cardText}>विडिओ</Text>
+                                </GridCard>
+                            </Col>
+                        </Row>
+                    </Grid>
                 </Content>
             </Container>
         )
